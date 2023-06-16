@@ -1,7 +1,10 @@
 import React from "react";
 import { ProductCard } from "../components/ProductCard";
+import { useTitle } from "../hooks/useTitle";
 
 export const Home = () => {
+  useTitle("Home");
+
   const products = [
     {
       id: 1,
