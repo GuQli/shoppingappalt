@@ -1,9 +1,12 @@
 import React from "react";
 import { CartCard } from "../components/CartCard";
 import { useTitle } from "../hooks/useTitle";
+import { useCart } from "../context/CartContext";
 
 export const Cart = () => {
   useTitle("Cart");
+
+  const { total } = useCart();
 
   const cartList = [
     {
@@ -23,7 +26,9 @@ export const Cart = () => {
   return (
     <main>
       <section className="cart">
-        <h1>Cart Items: {cartList.length}</h1>
+        <h1>
+          Cart Items: {cartList.length} / total: ${total}
+        </h1>
         {cartList.map((product) => (
           <CartCard key={product.id} product={product} />
         ))}
