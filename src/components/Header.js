@@ -1,13 +1,15 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../assets/logo.png";
+import { useCart } from "../context/CartContext";
 import "./Header.css";
-import logo from "../assets/logo.png";
 
 export const Header = () => {
+  const { cartList } = useCart();
+
   return (
     <header>
       <Link to="/" className="logo">
-        <img src={logo} alt="Shopmate Logo" />
+        <img src={Logo} alt="Shopmate Logo" />
         <span>Shopping Cart</span>
       </Link>
       <nav className="navigation">
@@ -19,7 +21,7 @@ export const Header = () => {
         </NavLink>
       </nav>
       <Link to="/cart" className="items">
-        <span>Cart: 2</span>
+        <span>Cart: {cartList.length}</span>
       </Link>
     </header>
   );
