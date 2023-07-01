@@ -13,7 +13,7 @@ export const Cart = () => {
           <h1>Cart is Empty</h1>
         ) : (
           <h1>
-            Cart Items: {cartList.length} / ${total}`
+            Cart Items: {cartList.length} / ${total}
           </h1>
         )}
         {cartList.map((product) => (
