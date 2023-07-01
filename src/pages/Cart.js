@@ -9,9 +9,13 @@ export const Cart = () => {
   return (
     <main>
       <section className="cart">
-        <h1>
-          Cart Items: {cartList.length} / ${total}
-        </h1>
+        {cartList.length <= 0 ? (
+          <h1>Cart is Empty</h1>
+        ) : (
+          <h1>
+            Cart Items: {cartList.length} / ${total}`
+          </h1>
+        )}
         {cartList.map((product) => (
           <CartCard key={product.id} product={product} />
         ))}
